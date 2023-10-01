@@ -93,21 +93,24 @@
       <a-entity camera> </a-entity>
     </a-scene>
     <script>
-      axios.get("https://btu-pokemon-event.onrender.com/en-yuksek-yakalama-oranlari")
-      .then((response) => {
+axios.get("https://btu-pokemon-api.onrender.com/en-yuksek-yakalama-oranlari")
+  .then((response) => {
     const enYuksekOranlar = response.data;
     
     // Sonuçları ekranda göster
     const listeElementi = document.getElementById("en-yuksek-liste");
     enYuksekOranlar.forEach((kullanici, index) => {
+      const yakalananPokemonlar = JSON.parse(kullanici.yakalananPokemonlar); // JSON veriyi diziye çevir
       const listItem = document.createElement("li");
-      listItem.textContent = `${index + 1}. ${kullanici.nickname} - Yakalanan Pokemon Sayısı: ${kullanici.yakalananPokemonlar.length}`;
+      listItem.textContent = `${index + 1}. ${kullanici.nickname} - Yakalanan Pokemon Sayısı: ${yakalananPokemonlar.length}`;
       listeElementi.appendChild(listItem);
     });
   })
   .catch((error) => {
     console.error("Hata:", error);
   });
+
+
       const ogrenciNo = localStorage.getItem("ogrenciNo");
       if (ogrenciNo) {
         console.log("Kullanıcı Öğrenci No:", ogrenciNo);
@@ -126,7 +129,7 @@
         // Yakalanan pokemonun adını ve kullanıcının öğrenci numarasını API'ye gönderin
         xhr.open(
     "GET",
-    `https://btu-pokemon-event.onrender.com/pokemon-ekle?ogrenciNo=${ogrenciNo}&yeniPokemon=${pokemonName}`,
+    `https://btu-pokemon-api.onrender.com/pokemon-ekle?ogrenciNo=${ogrenciNo}&yeniPokemon=${pokemonName}`,
     true
   );
 
@@ -134,7 +137,6 @@
     if (xhr.status === 200) {
       // Başarı mesajını işle
       const response = JSON.parse(xhr.responseText);
-      alert(response.message);
     }
   };
 
