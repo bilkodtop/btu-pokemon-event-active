@@ -1,6 +1,6 @@
 # BTÜ Bilişim ve Kodlama Topluluğu tarafından üniversite açılış etkinliğine özel olarak hazırlanmıştır
 
-## Etkinliğe kayıt olma ve etkinlik hakkında bilgiler içeren sayfa linki
+## Etkinliğe kayıt olma ve etkinlik hakkında bilgiler içeren sayfanın linki
 
 ![qrcode](https://github.com/bilkodtop/btu-pokemon-event-active/assets/113470792/0f37e69b-8cd1-41ee-8006-ced6e96079d8)
 
