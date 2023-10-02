@@ -90,7 +90,52 @@
           obj-model="obj: url(pokemons/cubone/cubone.obj); mtl: url(pokemons/cubone/cubone.mtl);"
         ></a-entity>
       </a-marker>
-
+      <a-marker type="barcode" value="31" name="jigglypuff">
+        <!-- .obj dosyasını görüntülemek için a-entity kullanın -->
+        <a-entity
+          position="0 0.5 0"
+          scale="1 1 1"
+          rotation="1 0 0"
+          obj-model="obj: url(pokemons/jigglypuff/model.obj); mtl: url(pokemons/jigglypuff/materials.mtl);"
+        ></a-entity>
+      </a-marker>
+      <a-marker type="barcode" value="32" name="eevee">
+        <!-- .obj dosyasını görüntülemek için a-entity kullanın -->
+        <a-entity
+          position="0 0.5 0"
+          scale="1 1 1"
+          rotation="1 0 0"
+          obj-model="obj: url(pokemons/eevee/model.obj); mtl: url(pokemons/eevee/materials.mtl);"
+        ></a-entity>
+      </a-marker>
+      <a-marker type="barcode" value="33" name="haunter">
+        <!-- .obj dosyasını görüntülemek için a-entity kullanın -->
+        <a-entity
+          position="0 0.5 0"
+          scale="1 1 1"
+          rotation="1 0 0"
+          obj-model="obj: url(pokemons/haunter/model.obj); mtl: url(pokemons/haunter/materials.mtl);"
+        ></a-entity>
+      </a-marker>
+      <a-marker type="barcode" value="34" name="magnemite">
+        <!-- .obj dosyasını görüntülemek için a-entity kullanın -->
+        <a-entity
+          position="0 0.5 0"
+          scale="1 1 1"
+          rotation="1 0 0"
+          obj-model="obj: url(pokemons/magnemite/model.obj); mtl: url(pokemons/magnemite/materials.mtl);"
+        ></a-entity>
+      </a-marker>
+      <a-marker type="barcode" value="35" name="porygon">
+        <!-- .obj dosyasını görüntülemek için a-entity kullanın -->
+        <a-entity
+          position="0 0.5 0"
+          scale="1 1 1"
+          rotation="1 0 0"
+          obj-model="obj: url(pokemons/porygon/model.obj); mtl: url(pokemons/porygon/materials.mtl);"
+        ></a-entity>
+      </a-marker>
+      
       <a-entity camera> </a-entity>
     </a-scene>
     <script>
@@ -126,6 +171,7 @@ axios.get("https://btu-pokemon-api.onrender.com/en-yuksek-yakalama-oranlari")
 
       function handleBarcodeDetection(event) {
         const pokemonName = event.target.getAttribute("name");
+        console.log(pokemonName);
         const xhr = new XMLHttpRequest();
         // Yakalanan pokemonun adını ve kullanıcının öğrenci numarasını API'ye gönderin
         xhr.open(
