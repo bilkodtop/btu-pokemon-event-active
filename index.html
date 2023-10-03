@@ -148,17 +148,31 @@ axios.get("https://btu-pokemon-api.onrender.com/en-yuksek-yakalama-oranlari")
   });
 
 
-      const ogrenciNo = localStorage.getItem("ogrenciNo");
-      if (ogrenciNo) {
-        console.log("Kullanıcı Öğrenci No:", ogrenciNo);
-      } else {
-        const ogrenciNo = prompt("Lütfen öğrenci numaranızı girin:");
-        if (ogrenciNo) {
+  const ogrenciNo = localStorage.getItem("ogrenciNo");
+if (ogrenciNo) {
+  console.log("Kullanıcı Öğrenci No:", ogrenciNo);
+} else {
+  const ogrenciNo = prompt("Lütfen öğrenci numaranızı girin:");
+  if (ogrenciNo) {
+    // Sunucuya öğrenci numarasını doğrulama için GET isteği gönder
+    fetch(`https://btu-pokemon-api.onrender.com/giris?ogrenciNo=${ogrenciNo}`)
+      .then((response) => {
+        if (response.status === 200) {
           localStorage.setItem("ogrenciNo", ogrenciNo);
+        } else if (response.status === 401) {
+          alert("Bu öğrenci numarası sisteme kayıtlı değil. Lütfen geçerli bir öğrenci numarası girin.");
         } else {
-          alert("Öğrenci numarası girmeniz gerekmektedir.");
+          alert("Bilinmeyen bir hata oluştu.");
         }
-      }
+      })
+      .catch((error) => {
+        console.error("Sunucu hatası:", error);
+        alert("Sunucu hatası oluştu. Lütfen daha sonra tekrar deneyin.");
+      });
+  } else {
+    alert("Öğrenci numarası girmeniz gerekmektedir.");
+  }
+}
 
       function handleBarcodeDetection(event) {
         const pokemonName = event.target.getAttribute("name");
