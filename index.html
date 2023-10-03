@@ -160,7 +160,7 @@ if (ogrenciNo) {
         if (response.status === 200) {
           localStorage.setItem("ogrenciNo", ogrenciNo);
         } else if (response.status === 401) {
-          alert("Bu öğrenci numarası sisteme kayıtlı değil. Lütfen geçerli bir öğrenci numarası girin.");
+          alert("Bu öğrenci numarası sisteme kayıtlı değil. Lütfen siteyi yenileyerek geçerli bir öğrenci numarası girin. Aksi takdirde gelişiminiz kayıt dışı olacaktır ");
         } else {
           alert("Bilinmeyen bir hata oluştu.");
         }
@@ -170,7 +170,7 @@ if (ogrenciNo) {
         alert("Sunucu hatası oluştu. Lütfen daha sonra tekrar deneyin.");
       });
   } else {
-    alert("Öğrenci numarası girmeniz gerekmektedir.");
+    alert("Öğrenci numarası girmediniz . Siteyi yenileyip tekrardan girmediğiniz takdirde gelişiminiz kayıt dışı olacaktır ");
   }
 }
 
