@@ -153,7 +153,9 @@ if (ogrenciNo) {
   console.log("Kullanıcı Öğrenci No:", ogrenciNo);
 } else {
   const ogrenciNo = prompt("Lütfen öğrenci numaranızı girin:");
+  ogrenciNo = ogrenciNo.toString();
   if (ogrenciNo) {
+    console.log(ogrenciNo)
     // Sunucuya öğrenci numarasını doğrulama için GET isteği gönder
     fetch(`https://btu-pokemon-api.onrender.com/giris?ogrenciNo=${ogrenciNo}`)
       .then((response) => {
