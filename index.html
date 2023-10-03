@@ -148,16 +148,16 @@ axios.get("https://btu-pokemon-api.onrender.com/en-yuksek-yakalama-oranlari")
   });
 
 
-  const ogrenciNo = localStorage.getItem("ogrenciNo");
+const ogrenciNo = localStorage.getItem("ogrenciNo");
 if (ogrenciNo) {
   console.log("Kullanıcı Öğrenci No:", ogrenciNo);
 } else {
-  const ogrenciNo = prompt("Lütfen öğrenci numaranızı girin:");
-  ogrenciNo = ogrenciNo.toString();
+  let ogrenciNo = prompt("Lütfen öğrenci numaranızı girin:");
+  
   if (ogrenciNo) {
     console.log(ogrenciNo)
     // Sunucuya öğrenci numarasını doğrulama için GET isteği gönder
-    fetch(`https://btu-pokemon-api.onrender.com/giris?ogrenciNo=${ogrenciNo}`)
+    fetch(`https://btu-pokemon-api.onrender.com/giris?ogrenci_no=${ogrenciNo}`)
       .then((response) => {
         if (response.status === 200) {
           localStorage.setItem("ogrenciNo", ogrenciNo);
